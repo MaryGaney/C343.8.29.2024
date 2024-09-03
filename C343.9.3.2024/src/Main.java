@@ -95,6 +95,32 @@ public class Main {
          * }
          *
          * subsequence sum equals to some target:
+         * return true if there exists a subseq with sum equal to k
+         * return False if there dne a subseq with sum equal to k
+         * {1,2,3,4}, k = 4
+         * {1,3}, 4
+         * k = 4
+         * 4 - 4 = 0, so keep subtracting the elements of the list from k
+         * 4 - 3 = k = 1, so go through list until find something less than 1, so k - 1 = 0
+         * if k = 0 then return True
+         * if i == 0 then return array[0] == k
+         * bool not_take = f(i-1,k)
+         * book take = false;
+         * if(array[i] <= k){
+         *      take = f(i-1,k-array[i])
+         * }
+         *
+         * generate all the subsequences and check if any gives a sum of k -> useless, takes too much time
+         * -we can just keep a check (while generating subsequences via recursion) if there is such a subsequence
+         *
+         * generic approach to such problems:
+         *      -express in terms of (index, target) (and do we need more parameters?)
+         *      -explore possibilities of that index
+         *          -value at that index is a part of such a subsequence
+         *          -value is not a part of such a subsequence
+         *      -returning true/false for the possibilities
+         *
+         * f(n-1,k) -> in the entire array until index n-1, does there exist a target k?
          */
 
 
